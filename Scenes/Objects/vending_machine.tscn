@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://eg1vkqml5utw"]
+
+[ext_resource type="PackedScene" uid="uid://vffuitiwqgwp" path="res://Assets/ObjectModels/vending_machine.glb" id="1_apcds"]
+
+[node name="vending_machine" instance=ExtResource("1_apcds")]

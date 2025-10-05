@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://smf028cbu0yc"]
+
+[ext_resource type="PackedScene" uid="uid://drnexyfvjlw72" path="res://Assets/ObjectModels/door.glb" id="1_54mbb"]
+[ext_resource type="Script" uid="uid://c6c0opt2dv37r" path="res://Scripts/door.gd" id="2_bw412"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54mbb"]
+
+[node name="door" instance=ExtResource("1_54mbb")]
+script = ExtResource("2_bw412")
+
+[node name="knob_hitbox" type="StaticBody3D" parent="." index="7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="knob_hitbox" index="0"]
+transform = Transform3D(0.42183003, 0, 0, 0, 0.75642633, 0, 0, 0, 0.27479994, -1.9195311, -0.26062918, 0.28067625)
+shape = SubResource("BoxShape3D_54mbb")
+
+[connection signal="input_event" from="knob_hitbox" to="." method="_on_knob_hitbox_input_event"]
+[connection signal="mouse_exited" from="knob_hitbox" to="." method="_on_knob_hitbox_mouse_exited"]

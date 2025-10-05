@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmqnuj8a60ys7"]
+
+[ext_resource type="Script" uid="uid://drcyxq4eberrj" path="res://Scripts/ui.gd" id="1_jxero"]
+[ext_resource type="Texture2D" uid="uid://b85vfwid4rkm6" path="res://Assets/Textures/Icons/kir1lkata_icon.png" id="2_qdvrb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wviqb"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_jxero"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_qdvrb"]
+font_size = 20
+
+[node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource("1_jxero")
+
+[node name="NightLabel" type="Label" parent="."]
+offset_left = 1826.0
+offset_top = 7.0
+offset_right = 1909.0
+offset_bottom = 48.0
+text = "Night 1"
+label_settings = SubResource("LabelSettings_wviqb")
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 1822.0
+offset_top = 42.0
+offset_right = 1904.0
+offset_bottom = 78.0
+text = "12 AM"
+label_settings = SubResource("LabelSettings_jxero")
+horizontal_alignment = 2
+
+[node name="MinutesLabel" type="Label" parent="."]
+offset_left = 1833.0
+offset_top = 74.0
+offset_right = 1855.0
+offset_bottom = 102.0
+text = "0:"
+label_settings = SubResource("LabelSettings_qdvrb")
+horizontal_alignment = 2
+
+[node name="SecondsLabel" type="Label" parent="."]
+offset_left = 1858.0
+offset_top = 74.0
+offset_right = 1887.0
+offset_bottom = 102.0
+text = "00."
+label_settings = SubResource("LabelSettings_qdvrb")
+horizontal_alignment = 2
+
+[node name="TenthsLabel" type="Label" parent="."]
+offset_left = 1878.0
+offset_top = 74.0
+offset_right = 1900.0
+offset_bottom = 102.0
+text = "0"
+label_settings = SubResource("LabelSettings_qdvrb")
+horizontal_alignment = 2
+
+[node name="Jumpscares" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Kir1lkata" type="Sprite2D" parent="Jumpscares"]
+visible = false
+position = Vector2(959, 552.99994)
+scale = Vector2(9, 9)
+texture = ExtResource("2_qdvrb")
