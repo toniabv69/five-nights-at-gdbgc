@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bahganb054t0c"]
+[gd_scene load_steps=14 format=3 uid="uid://bahganb054t0c"]
 
 [ext_resource type="PackedScene" uid="uid://c7iimm16s3que" path="res://Assets/ObjectModels/office_walls.glb" id="1_2uhvn"]
 [ext_resource type="Script" uid="uid://41orhoyo52bs" path="res://Scripts/night.gd" id="1_i5a8x"]
@@ -12,13 +12,17 @@
 [ext_resource type="PackedScene" uid="uid://smf028cbu0yc" path="res://Scenes/Objects/door.tscn" id="11_i5a8x"]
 [ext_resource type="Script" uid="uid://b4khyc7w4ekij" path="res://Scripts/Animatronics/kir1lkata.gd" id="11_r8eh5"]
 
+[sub_resource type="Environment" id="Environment_i5a8x"]
+
 [sub_resource type="Environment" id="Environment_annbh"]
 
 [node name="Night" type="Node3D"]
 script = ExtResource("1_i5a8x")
 
 [node name="Camera" type="Camera3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 4.943577, 0)
+environment = SubResource("Environment_i5a8x")
 current = true
 fov = 64.6
 script = ExtResource("7_n8f0r")

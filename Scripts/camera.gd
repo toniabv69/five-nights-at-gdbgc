@@ -1,7 +1,7 @@
 extends Camera3D
 
 var is_moving = false
-
+	
 func _input(event):
 	if not is_moving and event is InputEventKey:
 		var tween = get_tree().create_tween()
