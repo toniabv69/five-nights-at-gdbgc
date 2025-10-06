@@ -17,30 +17,53 @@ font_size = 36
 layout_mode = 3
 anchors_preset = 0
 offset_right = 135.0
-offset_bottom = 122.0
+offset_bottom = 190.0
 script = ExtResource("1_tqvl7")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Sizer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Panel" type="Panel" parent="Sizer"]
 layout_mode = 0
 offset_right = 135.0
 offset_bottom = 122.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_tqvl7")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Sizer/Panel"]
 layout_mode = 0
-offset_left = 91.0
-offset_top = 75.0
-offset_right = 130.0
-offset_bottom = 125.0
+offset_left = 48.0
+offset_top = 133.0
+offset_right = 86.99992
+offset_bottom = 183.00003
 text = "0"
 label_settings = SubResource("LabelSettings_w0jl2")
-horizontal_alignment = 2
+horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
+[node name="TextureRect" type="TextureRect" parent="Sizer/Panel"]
 z_index = -1
 layout_mode = 0
 offset_top = 1.0
 offset_right = 135.0
 offset_bottom = 122.0
 
-[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
+[node name="AIDown" type="Button" parent="Sizer"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 143.0
+offset_right = 37.0
+offset_bottom = 174.0
+text = "<"
+
+[node name="AIUp" type="Button" parent="Sizer"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 143.0
+offset_right = 117.0
+offset_bottom = 174.0
+text = ">"
+
+[connection signal="button_down" from="Sizer/AIDown" to="." method="_on_ai_down_button_down"]
+[connection signal="button_down" from="Sizer/AIUp" to="." method="_on_ai_up_button_down"]

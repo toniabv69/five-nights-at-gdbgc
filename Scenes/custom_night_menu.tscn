@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb5qsgv8qg1rd"]
+[gd_scene load_steps=6 format=3 uid="uid://bb5qsgv8qg1rd"]
 
 [ext_resource type="Script" uid="uid://cpko8sijrb1fx" path="res://Scripts/custom_night_menu.gd" id="1_k158q"]
 [ext_resource type="PackedScene" uid="uid://dyuwtletm3kgl" path="res://Scenes/cn_character_icon.tscn" id="2_vo62c"]
+[ext_resource type="Texture2D" uid="uid://c2bj822rdi4h7" path="res://Assets/Textures/Icons/soletki_icon.png" id="3_325s1"]
 [ext_resource type="Texture2D" uid="uid://b85vfwid4rkm6" path="res://Assets/Textures/Icons/kir1lkata_icon.png" id="3_j2ops"]
 [ext_resource type="Texture2D" uid="uid://3fmy1bv55ik8" path="res://Assets/Textures/Icons/void_icon.png" id="4_as5us"]
 
@@ -28,9 +29,13 @@ offset_left = 66.0
 offset_top = 58.0
 offset_right = 1416.0
 offset_bottom = 302.0
-theme_override_constants/h_separation = 135
-theme_override_constants/v_separation = 122
+theme_override_constants/h_separation = 280
+theme_override_constants/v_separation = 200
 columns = 10
+
+[node name="Soletki" parent="Characters/GridContainer" instance=ExtResource("2_vo62c")]
+layout_mode = 2
+sprite = ExtResource("3_325s1")
 
 [node name="Kir1lkata" parent="Characters/GridContainer" instance=ExtResource("2_vo62c")]
 layout_mode = 2
@@ -56,7 +61,7 @@ offset_bottom = 159.0
 theme_override_font_sizes/font_size = 50
 text = "Set All 0"
 
-[node name="CheckBox" type="CheckBox" parent="."]
+[node name="HardModeCheckbox" type="CheckBox" parent="."]
 offset_left = 1499.0
 offset_top = 346.0
 offset_right = 1689.0
@@ -64,3 +69,16 @@ offset_bottom = 396.0
 scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 26
 text = "Hard Mode"
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 1490.0
+offset_top = 842.0
+offset_right = 1859.0
+offset_bottom = 1022.0
+theme_override_font_sizes/font_size = 60
+text = "Start"
+
+[connection signal="button_down" from="SetAll20Button" to="." method="_on_set_all_20_button_button_down"]
+[connection signal="button_down" from="SetAll0Button" to="." method="_on_set_all_0_button_button_down"]
+[connection signal="toggled" from="HardModeCheckbox" to="." method="_on_hard_mode_checkbox_toggled"]
+[connection signal="button_up" from="StartButton" to="." method="_on_start_button_button_up"]
