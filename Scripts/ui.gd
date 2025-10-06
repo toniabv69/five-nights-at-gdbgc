@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+func _ready():
+	if CurrentNightData.hard_mode:
+		$HardModeTint.visible = true
+
 func set_time(time, night_length):
 	var minutes = int(floor(fmod(time, 3600) / 60))
 	var seconds = int(floor(fmod(time, 60)))

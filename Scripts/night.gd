@@ -14,6 +14,12 @@ func _ready():
 		$Camera/PlayerUI/NightLabel.position.x -= 80
 	else:
 		$Camera/PlayerUI/NightLabel.text = "Night " + str(night_number)
+	
+	night_number = CurrentNightData.night_number
+	night_length = CurrentNightData.night_time
+	hard_mode = CurrentNightData.hard_mode
+	custom_night = CurrentNightData.custom_night
+	
 		
 func _physics_process(delta: float) -> void:
 	time += delta

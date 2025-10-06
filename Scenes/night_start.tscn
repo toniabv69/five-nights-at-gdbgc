@@ -1,3 +1,36 @@
-[gd_scene format=3 uid="uid://cvbserxxvtsxp"]
+[gd_scene load_steps=2 format=3 uid="uid://cvbserxxvtsxp"]
+
+[ext_resource type="Script" uid="uid://bqv4schk8vuvh" path="res://Scripts/night_start.gd" id="1_7s7k0"]
 
 [node name="NightStart" type="Node2D"]
+script = ExtResource("1_7s7k0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -4
+offset_left = -223.0
+offset_top = -8.0
+offset_right = 2464.0
+offset_bottom = 1522.0
+color = Color(0, 0, 0, 1)
+
+[node name="NightLabel" type="Label" parent="."]
+offset_left = 535.0
+offset_top = 440.0
+offset_right = 1385.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+
+[node name="TipLabel" type="Label" parent="."]
+offset_top = 952.0
+offset_right = 1920.0
+offset_bottom = 1050.0
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
