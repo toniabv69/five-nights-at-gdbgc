@@ -20,4 +20,4 @@ func _on_start_button_button_up() -> void:
 	CurrentNightData.night_time = night_time
 	for child in $Characters/GridContainer.get_children():
 		CurrentNightData.ais[child.name] = child.get_ai()
-	get_tree().change_scene_to_file("res://Scenes/night_start.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menus/night_start.tscn")

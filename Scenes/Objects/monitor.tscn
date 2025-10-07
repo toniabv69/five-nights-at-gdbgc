@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg2dngs73jxqg"]
+
+[ext_resource type="PackedScene" uid="uid://c443q3i153dft" path="res://Assets/ObjectModels/monitor.glb" id="1_rl822"]
+[ext_resource type="Script" uid="uid://doqi2ka2nwyw8" path="res://Scripts/Objects/monitor.gd" id="2_02gt2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rl822"]
+
+[node name="monitor" instance=ExtResource("1_rl822")]
+script = ExtResource("2_02gt2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(0.43254778, 0, 0, 0, 1.8061185, 0, 0, 0, 3.2209668, 0.08940089, 0, 0)
+shape = SubResource("BoxShape3D_rl822")
+
+[connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]

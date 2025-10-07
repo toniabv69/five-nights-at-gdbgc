@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c045w6t6871lf"]
+
+[ext_resource type="PackedScene" uid="uid://ds4lk8adecrf8" path="res://Assets/ObjectModels/ethernet_cable.glb" id="1_yf7ho"]
+[ext_resource type="Script" uid="uid://cmv3md22n3bhu" path="res://Scripts/Objects/ethernet_cable.gd" id="2_8lu6c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf7ho"]
+size = Vector3(1, 1, 3.1156006)
+
+[node name="ethernet_cable" instance=ExtResource("1_yf7ho")]
+script = ExtResource("2_8lu6c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(0.7956329, 0, 0, 0, 0.39167663, 0, 0, 0, 1, 0, 0, -1.0564575)
+shape = SubResource("BoxShape3D_yf7ho")
+
+[connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]

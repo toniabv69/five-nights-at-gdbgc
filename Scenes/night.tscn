@@ -1,17 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://bahganb054t0c"]
+[gd_scene load_steps=17 format=3 uid="uid://bahganb054t0c"]
 
 [ext_resource type="PackedScene" uid="uid://c7iimm16s3que" path="res://Assets/ObjectModels/office_walls.glb" id="1_2uhvn"]
 [ext_resource type="Script" uid="uid://41orhoyo52bs" path="res://Scripts/night.gd" id="1_i5a8x"]
 [ext_resource type="PackedScene" uid="uid://p4gusk1ysuej" path="res://Assets/ObjectModels/desk.glb" id="2_ndvps"]
-[ext_resource type="PackedScene" uid="uid://c443q3i153dft" path="res://Assets/ObjectModels/monitor.glb" id="3_cfpff"]
+[ext_resource type="PackedScene" uid="uid://xieogyibnulk" path="res://Scenes/monitor_ui.tscn" id="4_hurcf"]
 [ext_resource type="PackedScene" uid="uid://02xf0rq7jck1" path="res://Assets/ObjectModels/router.glb" id="5_1bhon"]
-[ext_resource type="PackedScene" uid="uid://ds4lk8adecrf8" path="res://Assets/ObjectModels/ethernet_cable.glb" id="6_1bhon"]
 [ext_resource type="PackedScene" uid="uid://vffuitiwqgwp" path="res://Assets/ObjectModels/vending_machine.glb" id="7_mvn8s"]
 [ext_resource type="Script" uid="uid://dbiehm26h2kpv" path="res://Scripts/camera.gd" id="7_n8f0r"]
 [ext_resource type="PackedScene" uid="uid://dmqnuj8a60ys7" path="res://Scenes/ui.tscn" id="7_usg6m"]
+[ext_resource type="PackedScene" uid="uid://dg2dngs73jxqg" path="res://Scenes/Objects/monitor.tscn" id="10_hurcf"]
+[ext_resource type="PackedScene" uid="uid://c045w6t6871lf" path="res://Scenes/Objects/ethernet_cable.tscn" id="10_loplb"]
 [ext_resource type="PackedScene" uid="uid://smf028cbu0yc" path="res://Scenes/Objects/door.tscn" id="11_i5a8x"]
 [ext_resource type="Script" uid="uid://b4khyc7w4ekij" path="res://Scripts/Animatronics/kir1lkata.gd" id="11_r8eh5"]
 [ext_resource type="AudioStream" uid="uid://bp1wt68qeg7gt" path="res://Assets/Sounds/power_ambience.mp3" id="12_r8eh5"]
+[ext_resource type="Script" uid="uid://csn3gyixxlqkh" path="res://Scripts/Animatronics/void.gd" id="13_hurcf"]
 
 [sub_resource type="Environment" id="Environment_i5a8x"]
 
@@ -22,13 +24,16 @@ script = ExtResource("1_i5a8x")
 
 [node name="Camera" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 4.943577, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 4.98, 0)
 environment = SubResource("Environment_i5a8x")
 current = true
 fov = 64.6
 script = ExtResource("7_n8f0r")
 
 [node name="PlayerUI" parent="Camera" instance=ExtResource("7_usg6m")]
+
+[node name="MonitorUI" parent="Camera" instance=ExtResource("4_hurcf")]
+visible = false
 
 [node name="Light" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.687339, 0)
@@ -53,14 +58,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.79966825, -0.031151295, 0, 0.0
 [node name="Desk" parent="Office" instance=ExtResource("2_ndvps")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.72563076, 5.5778074)
 
-[node name="Monitor" parent="Office" instance=ExtResource("3_cfpff")]
-transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 0, 4.9802737, 6.7077246)
-
 [node name="Router" parent="Office" instance=ExtResource("5_1bhon")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5618649, 2.9886117, 6.7151575)
-
-[node name="EthernetCable" parent="Office" instance=ExtResource("6_1bhon")]
-transform = Transform3D(-0.5, 0, -2.298999e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.26297483, 3.4592328, 3.0318832, 7.685705)
 
 [node name="VendingMachine" parent="Office" instance=ExtResource("7_mvn8s")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -7.957, 4.17, 0)
@@ -68,10 +67,18 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -7.957, 4.17, 0)
 [node name="Door" parent="Office" instance=ExtResource("11_i5a8x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023903847, 4.292261, -8.776262)
 
+[node name="EthernetCable" parent="Office" instance=ExtResource("10_loplb")]
+transform = Transform3D(-0.5, 0, -2.2992191e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.263, 3.574, 2.989, 7.676)
+visible = false
+
+[node name="Monitor" parent="Office" instance=ExtResource("10_hurcf")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 0, 4.98, 6.708)
+
 [node name="Animatronics" type="Node" parent="."]
 
 [node name="Kir1lkata" type="Node" parent="Animatronics"]
 script = ExtResource("11_r8eh5")
+ai_value = null
 metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
 
 [node name="Timer" type="Timer" parent="Animatronics/Kir1lkata"]
@@ -82,7 +89,13 @@ autostart = true
 wait_time = 2.0
 one_shot = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Void" type="Node" parent="Animatronics"]
+script = ExtResource("13_hurcf")
+metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
+
+[node name="AudioPlayers" type="Node" parent="."]
+
+[node name="AmbiencePlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
 stream = ExtResource("12_r8eh5")
 volume_db = -40.0
 autoplay = true

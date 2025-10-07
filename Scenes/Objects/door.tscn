@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://smf028cbu0yc"]
 
 [ext_resource type="PackedScene" uid="uid://drnexyfvjlw72" path="res://Assets/ObjectModels/door.glb" id="1_54mbb"]
-[ext_resource type="Script" uid="uid://c6c0opt2dv37r" path="res://Scripts/door.gd" id="2_bw412"]
+[ext_resource type="Script" uid="uid://c6c0opt2dv37r" path="res://Scripts/Objects/door.gd" id="2_bw412"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_54mbb"]
 
