@@ -78,7 +78,6 @@ transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08
 
 [node name="Kir1lkata" type="Node" parent="Animatronics"]
 script = ExtResource("11_r8eh5")
-ai_value = null
 metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
 
 [node name="Timer" type="Timer" parent="Animatronics/Kir1lkata"]
@@ -102,3 +101,4 @@ autoplay = true
 parameters/looping = true
 
 [connection signal="timeout" from="Animatronics/Kir1lkata/Timer" to="Animatronics/Kir1lkata" method="_on_timer_timeout"]
+[connection signal="timeout" from="Animatronics/Kir1lkata/AttackTimer" to="Animatronics/Kir1lkata" method="_on_attack_timer_timeout"]

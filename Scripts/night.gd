@@ -37,6 +37,10 @@ func _physics_process(delta: float) -> void:
 func end_night():
 	night_ended = true
 
+func game_over():
+	#TODO: create game over scene
+	get_tree().change_scene_to_file("res://Scenes/Menus/custom_night_menu.tscn")
+
 func dim_camera():
 	var dim_tween = get_tree().create_tween()
 	dim_tween.tween_method(
