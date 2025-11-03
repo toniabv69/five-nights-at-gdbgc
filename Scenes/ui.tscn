@@ -75,5 +75,6 @@ offset_bottom = 40.0
 [node name="Kir1lkata" type="Sprite2D" parent="Jumpscares"]
 visible = false
 position = Vector2(959, 552.99994)
+rotation = -0.0798657
 scale = Vector2(9, 9)
 texture = ExtResource("2_qdvrb")
