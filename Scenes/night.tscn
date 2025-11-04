@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bahganb054t0c"]
+[gd_scene load_steps=23 format=3 uid="uid://bahganb054t0c"]
 
 [ext_resource type="PackedScene" uid="uid://c7iimm16s3que" path="res://Assets/ObjectModels/office_walls.glb" id="1_2uhvn"]
 [ext_resource type="Script" uid="uid://41orhoyo52bs" path="res://Scripts/night.gd" id="1_i5a8x"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://cpjo82vmpe4i8" path="res://Assets/Sounds/Animatronic/kir1lkata_rage.mp3" id="15_fur6u"]
 [ext_resource type="AudioStream" uid="uid://b4frum3uve82" path="res://Assets/Sounds/Animatronic/kir1lkata_slam.mp3" id="16_fur6u"]
 [ext_resource type="Script" uid="uid://cn1f1b2vuji0a" path="res://Scripts/Animatronics/soletki.gd" id="18_7g1oc"]
+[ext_resource type="AudioStream" uid="uid://djdtmg6bpqay7" path="res://Assets/Sounds/Animatronic/soletki_knocking.mp3" id="19_ayv6d"]
 
 [sub_resource type="Environment" id="Environment_i5a8x"]
 
@@ -86,7 +87,7 @@ script = ExtResource("11_r8eh5")
 metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
 
 [node name="Timer" type="Timer" parent="Animatronics/Kir1lkata"]
-wait_time = 7.5
+wait_time = 16.0
 autostart = true
 
 [node name="Kir1lkataRunning" type="AudioStreamPlayer3D" parent="Animatronics/Kir1lkata"]
@@ -114,6 +115,17 @@ metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
 script = ExtResource("18_7g1oc")
 metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
 
+[node name="AttackTimer" type="Timer" parent="Animatronics/Soletki"]
+wait_time = 4.0
+one_shot = true
+
+[node name="SoletkiKnocking" type="AudioStreamPlayer3D" parent="Animatronics/Soletki"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.439536, -9.373125)
+stream = ExtResource("19_ayv6d")
+
+[node name="SoletkiJumpscare" type="AudioStreamPlayer3D" parent="Animatronics/Soletki"]
+stream = ExtResource("14_udoo7")
+
 [node name="AudioPlayers" type="Node" parent="."]
 
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
@@ -125,3 +137,4 @@ parameters/looping = true
 [connection signal="timeout" from="Animatronics/Kir1lkata/Timer" to="Animatronics/Kir1lkata" method="_on_timer_timeout"]
 [connection signal="finished" from="Animatronics/Kir1lkata/Kir1lkataRunning" to="Animatronics/Kir1lkata" method="_on_kir_1_lkata_running_finished"]
 [connection signal="finished" from="Animatronics/Kir1lkata/Kir1lkataRage" to="Animatronics/Kir1lkata" method="_on_kir_1_lkata_rage_finished"]
+[connection signal="timeout" from="Animatronics/Soletki/AttackTimer" to="Animatronics/Soletki" method="_on_attack_timer_timeout"]

@@ -13,3 +13,7 @@ func set_time(time, night_length):
 	$MinutesLabel.text = str(minutes) + ":"
 	$SecondsLabel.text = "%02d." % seconds
 	$TenthsLabel.text = str(tenths)
+
+
+func _on_soletki_button_down() -> void:
+	$Animatronics/Soletki.visible = false
