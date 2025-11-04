@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://7mc574qr8kav"]
+
+[node name="DiscordUi" type="CanvasLayer"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -4
+offset_left = -301.0
+offset_top = -158.0
+offset_right = 2386.0
+offset_bottom = 1372.0
+mouse_filter = 2
+color = Color(0.04333955, 0.045277648, 0.07061621, 1)
+
+[node name="DirectMessagesButton" type="Button" parent="."]
+offset_right = 960.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 36
+text = "Direct Messages"
+
+[node name="ServerMessagesButton" type="Button" parent="."]
+offset_left = 960.0
+offset_right = 1920.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 36
+text = "Server Messages"
+
+[node name="DirectMessages" type="Panel" parent="."]
+visible = false
+offset_top = 120.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ServerMessages" type="Panel" parent="."]
+offset_top = 120.0
+offset_right = 1920.0
+offset_bottom = 1080.0
