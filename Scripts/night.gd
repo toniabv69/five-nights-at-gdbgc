@@ -11,7 +11,6 @@ var current_internet: float = max_internet
 var in_monitor: bool = false
 
 func _ready():
-	#$Animatronics/Kir1lkata.jumpscare()
 	if custom_night:
 		$Camera/PlayerUI/NightLabel.text = "Custom Night"
 		$Camera/PlayerUI/NightLabel.position.x -= 80
@@ -30,6 +29,7 @@ func _ready():
 		
 func _physics_process(delta: float) -> void:
 	time += delta
+	CurrentNightData.time_elapsed = time
 	if time >= night_length - 0.15:
 		dim_camera()
 	$Camera/PlayerUI.set_time(time, night_length)

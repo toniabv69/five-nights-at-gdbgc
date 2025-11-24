@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://bycp72n00mber"]
+
+[ext_resource type="Script" uid="uid://br06sk8jbyxb5" path="res://Scripts/UI/messages_box.gd" id="1_d50l0"]
+
+[node name="MessagesBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -395.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_d50l0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1517.0
+offset_bottom = 875.0
+mouse_filter = 2
+
+[node name="Messages" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1517.0
+offset_bottom = 871.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Messages"]
+layout_mode = 0
+offset_right = 1517.0
+offset_bottom = 746.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Messages/ScrollContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 148
+
+[node name="Textbox" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 746.0
+offset_right = 1492.0
+offset_bottom = 835.0
+theme_override_font_sizes/font_size = 30
+max_length = 50
+
+[connection signal="text_submitted" from="Textbox" to="." method="_on_textbox_text_submitted"]

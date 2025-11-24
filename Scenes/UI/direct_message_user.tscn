@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmjnqj8o31q3a"]
+
+[ext_resource type="Texture2D" uid="uid://drcsnbo2fi6kc" path="res://icon.svg" id="1_7c0iq"]
+[ext_resource type="Script" uid="uid://bbemlt3npd80b" path="res://Scripts/UI/direct_message_user.gd" id="1_82qev"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_82qev"]
+
+[node name="DirectMessageUser" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_82qev")
+username = null
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 403.0
+offset_bottom = 88.0
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+clip_children = 2
+position = Vector2(49, 44.000004)
+scale = Vector2(60, 60)
+mesh = SubResource("SphereMesh_82qev")
+
+[node name="Image" type="Sprite2D" parent="MeshInstance2D"]
+position = Vector2(0.012499982, -6.519258e-08)
+scale = Vector2(0.010742186, 0.011328125)
+texture = ExtResource("1_7c0iq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 102.0
+offset_right = 380.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 30
+text = "toniabv69"
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
