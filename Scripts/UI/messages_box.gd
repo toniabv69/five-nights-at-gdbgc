@@ -28,7 +28,7 @@ func _on_textbox_text_submitted(new_text: String) -> void:
 	$Textbox.clear()
 	$Textbox.call_deferred("edit")
 	var message = add_message(CurrentNightData.username, Utils.transform_current_time_to_timestamp(), new_text, CurrentNightData.profile_picture)
-	#user.animatronic.apply_message_sent_effect(message)
+	user.animatronic.apply_message_sent_effect(message)
 
 func receive_message(username: String, timestamp: String, message_text: String, profile_picture: Texture):
 	add_message(username, timestamp, message_text, profile_picture)

@@ -46,7 +46,7 @@ mouse_filter = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="DirectMessages"]
 layout_mode = 0
 offset_top = 8.0
-offset_right = 403.0
+offset_right = 388.0
 offset_bottom = 747.0
 mouse_filter = 2
 
@@ -90,6 +90,7 @@ user = NodePath("../../ScrollContainer/VBoxContainer/Toniabv69")
 
 [node name="Faith" parent="DirectMessages/Messages" node_paths=PackedStringArray("user") instance=ExtResource("3_1vobr")]
 layout_mode = 1
+offset_top = 9.0
 offset_right = 0.0
 offset_bottom = -4.0
 user = NodePath("../../ScrollContainer/VBoxContainer/Faith")

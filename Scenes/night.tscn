@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bahganb054t0c"]
+[gd_scene load_steps=25 format=3 uid="uid://bahganb054t0c"]
 
 [ext_resource type="PackedScene" uid="uid://c7iimm16s3que" path="res://Assets/ObjectModels/office_walls.glb" id="1_2uhvn"]
 [ext_resource type="Script" uid="uid://41orhoyo52bs" path="res://Scripts/night.gd" id="1_i5a8x"]
@@ -20,6 +20,8 @@
 [ext_resource type="AudioStream" uid="uid://b4frum3uve82" path="res://Assets/Sounds/Animatronic/kir1lkata_slam.mp3" id="16_fur6u"]
 [ext_resource type="Script" uid="uid://cn1f1b2vuji0a" path="res://Scripts/Animatronics/soletki.gd" id="18_7g1oc"]
 [ext_resource type="AudioStream" uid="uid://djdtmg6bpqay7" path="res://Assets/Sounds/Animatronic/soletki_knocking.mp3" id="19_ayv6d"]
+[ext_resource type="Script" uid="uid://ci1qdkw474o2v" path="res://Scripts/Animatronics/martin.gd" id="20_kyc5m"]
+[ext_resource type="Script" uid="uid://dfdhmjn8yonjp" path="res://Scripts/Classes/Animatronic.gd" id="21_e4seg"]
 
 [sub_resource type="Environment" id="Environment_i5a8x"]
 
@@ -126,6 +128,18 @@ stream = ExtResource("19_ayv6d")
 
 [node name="SoletkiJumpscare" type="AudioStreamPlayer3D" parent="Animatronics/Soletki"]
 stream = ExtResource("14_udoo7")
+
+[node name="Martin" type="Node" parent="Animatronics"]
+script = ExtResource("20_kyc5m")
+metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
+
+[node name="AskTimer" type="Timer" parent="Animatronics/Martin"]
+
+[node name="AttackTimer" type="Timer" parent="Animatronics/Martin"]
+
+[node name="Toniabv69" type="Node" parent="Animatronics"]
+script = ExtResource("21_e4seg")
+metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
 
 [node name="AudioPlayers" type="Node" parent="."]
 
