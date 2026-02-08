@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 CurrentNightData="*res://Scripts/Globals/current_night_data.gd"
 Tips="*res://Scripts/Globals/tips.gd"
 Utils="*res://Scripts/Globals/utils.gd"
+LimboSpreadsheet="*res://Scripts/Globals/limbo_spreadsheet.gd"
 
 [display]
 

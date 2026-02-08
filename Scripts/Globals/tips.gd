@@ -7,6 +7,5 @@ var tips = [
 	"Tip: Some people work in pairs. They will always act together.",
 	"limbo never",
 	"chin",
-	"Tip: Check out the Custom Night!",
 	"\"martin me podpali\" - kir1lkata"
 ]

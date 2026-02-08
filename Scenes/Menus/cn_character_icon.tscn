@@ -28,16 +28,16 @@ scale = Vector2(1.5, 1.5)
 
 [node name="Panel" type="Panel" parent="Sizer"]
 layout_mode = 0
-offset_right = 135.0
+offset_right = 122.0
 offset_bottom = 122.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_tqvl7")
 
 [node name="Label" type="Label" parent="Sizer/Panel"]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 133.0
-offset_right = 86.99992
-offset_bottom = 183.00003
+offset_left = 44.666668
+offset_top = 132.66667
+offset_right = 83.666595
+offset_bottom = 182.6667
 text = "0"
 label_settings = SubResource("LabelSettings_w0jl2")
 horizontal_alignment = 1
@@ -46,23 +46,25 @@ horizontal_alignment = 1
 z_index = -1
 layout_mode = 0
 offset_top = 1.0
-offset_right = 135.0
+offset_right = 121.0
 offset_bottom = 122.0
+expand_mode = 2
+stretch_mode = 3
 
 [node name="AIDown" type="Button" parent="Sizer"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 143.0
-offset_right = 37.0
-offset_bottom = 174.0
+offset_left = 14.666666
+offset_top = 142.66667
+offset_right = 33.666664
+offset_bottom = 173.66667
 text = "<"
 
 [node name="AIUp" type="Button" parent="Sizer"]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 143.0
-offset_right = 117.0
-offset_bottom = 174.0
+offset_left = 94.666664
+offset_top = 142.66667
+offset_right = 113.666664
+offset_bottom = 173.66667
 text = ">"
 
 [connection signal="button_down" from="Sizer/AIDown" to="." method="_on_ai_down_button_down"]

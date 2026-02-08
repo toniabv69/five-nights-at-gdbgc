@@ -10,7 +10,7 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_2txpk"]
 
-[node name="DiscordUi" type="CanvasLayer"]
+[node name="DiscordUI" type="CanvasLayer"]
 visible = false
 script = ExtResource("1_oc8fv")
 

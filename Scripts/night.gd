@@ -27,7 +27,7 @@ func _ready():
 	for child in $Animatronics.get_children():
 		child.ai_value = CurrentNightData.ais[child.name]
 		
-		for user_child in $Camera/MonitorUI/DiscordUi/DirectMessages/ScrollContainer/VBoxContainer.get_children():
+		for user_child in $Camera/MonitorUI/DiscordUI/DirectMessages/ScrollContainer/VBoxContainer.get_children():
 			if child.name == user_child.name:
 				user_child.animatronic = child
 		

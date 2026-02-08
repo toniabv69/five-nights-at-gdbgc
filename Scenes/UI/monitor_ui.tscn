@@ -30,7 +30,7 @@ visible = false
 position = Vector2(960, 540)
 texture = ExtResource("3_aij4v")
 
-[node name="DiscordUi" parent="." instance=ExtResource("4_t2yi8")]
+[node name="DiscordUI" parent="." instance=ExtResource("4_t2yi8")]
 
 [node name="TimeLabel" type="Label" parent="."]
 offset_left = 852.0

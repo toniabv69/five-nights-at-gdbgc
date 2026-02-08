@@ -134,8 +134,11 @@ script = ExtResource("20_kyc5m")
 metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
 
 [node name="AskTimer" type="Timer" parent="Animatronics/Martin"]
+wait_time = 15.0
 
 [node name="AttackTimer" type="Timer" parent="Animatronics/Martin"]
+wait_time = 25.0
+one_shot = true
 
 [node name="Toniabv69" type="Node" parent="Animatronics"]
 script = ExtResource("21_e4seg")
@@ -153,3 +156,4 @@ parameters/looping = true
 [connection signal="finished" from="Animatronics/Kir1lkata/Kir1lkataRunning" to="Animatronics/Kir1lkata" method="_on_kir_1_lkata_running_finished"]
 [connection signal="finished" from="Animatronics/Kir1lkata/Kir1lkataRage" to="Animatronics/Kir1lkata" method="_on_kir_1_lkata_rage_finished"]
 [connection signal="timeout" from="Animatronics/Soletki/AttackTimer" to="Animatronics/Soletki" method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Animatronics/Martin/AskTimer" to="Animatronics/Martin" method="_on_ask_timer_timeout"]

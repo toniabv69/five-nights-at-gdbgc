@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb5qsgv8qg1rd"]
+[gd_scene load_steps=8 format=3 uid="uid://bb5qsgv8qg1rd"]
 
 [ext_resource type="Script" uid="uid://cpko8sijrb1fx" path="res://Scripts/custom_night_menu.gd" id="1_k158q"]
 [ext_resource type="PackedScene" uid="uid://dyuwtletm3kgl" path="res://Scenes/Menus/cn_character_icon.tscn" id="2_vo62c"]
 [ext_resource type="Texture2D" uid="uid://c2bj822rdi4h7" path="res://Assets/Textures/Icons/soletki_icon.png" id="3_325s1"]
 [ext_resource type="Texture2D" uid="uid://b85vfwid4rkm6" path="res://Assets/Textures/Icons/kir1lkata_icon.png" id="3_j2ops"]
 [ext_resource type="Texture2D" uid="uid://3fmy1bv55ik8" path="res://Assets/Textures/Icons/void_icon.png" id="4_as5us"]
+[ext_resource type="Texture2D" uid="uid://b3n8uqa85rwra" path="res://Assets/Textures/Icons/martin_icon.png" id="6_t8l8j"]
+[ext_resource type="Texture2D" uid="uid://di4utjoqyph71" path="res://Assets/Textures/Icons/toniabv69_icon.png" id="7_4bekb"]
 
 [node name="CustomNightMenu" type="Node2D"]
 script = ExtResource("1_k158q")
@@ -44,6 +46,14 @@ sprite = ExtResource("3_j2ops")
 [node name="Void" parent="Characters/GridContainer" instance=ExtResource("2_vo62c")]
 layout_mode = 2
 sprite = ExtResource("4_as5us")
+
+[node name="Martin" parent="Characters/GridContainer" instance=ExtResource("2_vo62c")]
+layout_mode = 2
+sprite = ExtResource("6_t8l8j")
+
+[node name="Toniabv69" parent="Characters/GridContainer" instance=ExtResource("2_vo62c")]
+layout_mode = 2
+sprite = ExtResource("7_4bekb")
 
 [node name="SetAll20Button" type="Button" parent="."]
 offset_left = 1490.0
