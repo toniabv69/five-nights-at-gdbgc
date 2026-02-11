@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bahganb054t0c"]
+[gd_scene load_steps=27 format=3 uid="uid://bahganb054t0c"]
 
 [ext_resource type="PackedScene" uid="uid://c7iimm16s3que" path="res://Assets/ObjectModels/office_walls.glb" id="1_2uhvn"]
 [ext_resource type="Script" uid="uid://41orhoyo52bs" path="res://Scripts/night.gd" id="1_i5a8x"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c045w6t6871lf" path="res://Scenes/Objects/ethernet_cable.tscn" id="10_loplb"]
 [ext_resource type="PackedScene" uid="uid://smf028cbu0yc" path="res://Scenes/Objects/door.tscn" id="11_i5a8x"]
 [ext_resource type="Script" uid="uid://b4khyc7w4ekij" path="res://Scripts/Animatronics/kir1lkata.gd" id="11_r8eh5"]
+[ext_resource type="PackedScene" uid="uid://dhj3qx6ygyk4d" path="res://Assets/ObjectModels/clock.glb" id="12_plow2"]
 [ext_resource type="AudioStream" uid="uid://bp1wt68qeg7gt" path="res://Assets/Sounds/power_ambience.mp3" id="12_r8eh5"]
 [ext_resource type="AudioStream" uid="uid://bkc000ebyhqsq" path="res://Assets/Sounds/Animatronic/kir1lkata_running.mp3" id="13_gkxo8"]
 [ext_resource type="Script" uid="uid://csn3gyixxlqkh" path="res://Scripts/Animatronics/void.gd" id="13_hurcf"]
@@ -21,7 +22,8 @@
 [ext_resource type="Script" uid="uid://cn1f1b2vuji0a" path="res://Scripts/Animatronics/soletki.gd" id="18_7g1oc"]
 [ext_resource type="AudioStream" uid="uid://djdtmg6bpqay7" path="res://Assets/Sounds/Animatronic/soletki_knocking.mp3" id="19_ayv6d"]
 [ext_resource type="Script" uid="uid://ci1qdkw474o2v" path="res://Scripts/Animatronics/martin.gd" id="20_kyc5m"]
-[ext_resource type="Script" uid="uid://dfdhmjn8yonjp" path="res://Scripts/Classes/Animatronic.gd" id="21_e4seg"]
+[ext_resource type="Script" uid="uid://2hejg5wy1014" path="res://Scripts/Animatronics/toniabv69.gd" id="21_kyc5m"]
+[ext_resource type="Script" uid="uid://blmv5tw4vsi38" path="res://Scripts/Animatronics/faith.gd" id="22_e4seg"]
 
 [sub_resource type="Environment" id="Environment_i5a8x"]
 
@@ -82,6 +84,9 @@ visible = false
 [node name="Monitor" parent="Office" instance=ExtResource("10_hurcf")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 0, 4.98, 6.708)
 
+[node name="Clock" parent="Office" instance=ExtResource("12_plow2")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -5.4037933, 8.227993, -8.378357)
+
 [node name="Animatronics" type="Node" parent="."]
 unique_name_in_owner = true
 
@@ -135,13 +140,27 @@ metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
 
 [node name="AskTimer" type="Timer" parent="Animatronics/Martin"]
 wait_time = 15.0
+autostart = true
 
 [node name="AttackTimer" type="Timer" parent="Animatronics/Martin"]
 wait_time = 25.0
 one_shot = true
 
+[node name="MartinJumpscare" type="AudioStreamPlayer3D" parent="Animatronics/Martin"]
+stream = ExtResource("14_udoo7")
+
 [node name="Toniabv69" type="Node" parent="Animatronics"]
-script = ExtResource("21_e4seg")
+script = ExtResource("21_kyc5m")
+metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
+
+[node name="SendResponseTimer" type="Timer" parent="Animatronics/Toniabv69"]
+one_shot = true
+
+[node name="Toniabv69Jumpscare" type="AudioStreamPlayer3D" parent="Animatronics/Toniabv69"]
+stream = ExtResource("14_udoo7")
+
+[node name="Faith" type="Node" parent="Animatronics"]
+script = ExtResource("22_e4seg")
 metadata/_custom_type_script = "uid://dfdhmjn8yonjp"
 
 [node name="AudioPlayers" type="Node" parent="."]
@@ -157,3 +176,5 @@ parameters/looping = true
 [connection signal="finished" from="Animatronics/Kir1lkata/Kir1lkataRage" to="Animatronics/Kir1lkata" method="_on_kir_1_lkata_rage_finished"]
 [connection signal="timeout" from="Animatronics/Soletki/AttackTimer" to="Animatronics/Soletki" method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="Animatronics/Martin/AskTimer" to="Animatronics/Martin" method="_on_ask_timer_timeout"]
+[connection signal="timeout" from="Animatronics/Martin/AttackTimer" to="Animatronics/Martin" method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Animatronics/Toniabv69/SendResponseTimer" to="Animatronics/Toniabv69" method="_on_send_response_timer_timeout"]

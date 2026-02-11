@@ -24,3 +24,7 @@ func _on_button_pressed() -> void:
 		else:
 			child.hide()
 	
+func send_message(message_text):
+	get_node("../../../Messages/" + name).\
+	receive_message(username, Utils.transform_current_time_to_timestamp(),\
+	message_text, image_sprite)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://oftm6i74n4cj"]
+
+[ext_resource type="PackedScene" uid="uid://dhj3qx6ygyk4d" path="res://Assets/ObjectModels/clock.glb" id="1_cmipi"]
+
+[node name="clock" instance=ExtResource("1_cmipi")]
+
+[node name="Cube_002" parent="." index="4"]
+transform = Transform3D(0.005911146, 0, 0, 0, 0.029237244, 0, 0, 0, 0.0067572086, -0.15473284, 0, 0)

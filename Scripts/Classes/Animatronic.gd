@@ -6,6 +6,8 @@ class_name Animatronic
 @export var jumpscare_audio_player: AudioStreamPlayer3D
 
 func jumpscare():
+	if get_node("../..").in_monitor:
+		get_node("../..").close_monitor()
 	sprite.visible = true
 	jumpscare_audio_player.play()
 	jumpscare_audio_player.connect("finished", get_node("../..").game_over)

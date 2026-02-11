@@ -34,10 +34,15 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	time += delta
 	CurrentNightData.time_elapsed = time
-	if time >= night_length - 0.15:
+	if time >= night_length - 0.5:
 		dim_camera()
+	if time >= night_length:
+		get_tree().change_scene_to_file("res://Scenes/Objects/Cutscenes/end_night_cutscene.tscn")
 	$Camera/PlayerUI.set_time(time, night_length)
-
+	$Office/Clock/Cube.rotation_degrees += Vector3((-1 * 180 * (delta / night_length)), 0, 0)
+	$Office/Clock/Cube_001.rotation_degrees += Vector3((-1 * 360 * 6 * (delta / night_length)), 0, 0)
+	$Office/Clock/Cube_002.position += Vector3(100, 0, 0)
+	
 func end_night():
 	night_ended = true
 
@@ -52,7 +57,7 @@ func dim_camera():
 			%Camera.environment.tonemap_exposure = value,
 		%Camera.environment.tonemap_exposure,
 		0,
-		0.15
+		0.5
 	)
 	dim_tween.connect("finished", end_night)
 
@@ -64,6 +69,7 @@ func open_monitor():
 	%Camera.move_forward()
 
 func close_monitor():
+	$Camera/MonitorUI/DiscordUI.visible = false
 	%Camera/MonitorUI.visible = false
 	%Camera.move_backward()
 	for child in $Animatronics.get_children():

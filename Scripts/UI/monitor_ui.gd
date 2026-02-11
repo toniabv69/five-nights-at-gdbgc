@@ -10,7 +10,6 @@ func on_open():
 		
 func _on_power_button_button_down() -> void:
 	get_node("../..").close_monitor()
-	$DiscordUI.visible = false
 
 func _physics_process(_delta) -> void:
 	$TimeLabel.text = Utils.transform_current_time_to_timestamp()

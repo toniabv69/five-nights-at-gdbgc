@@ -148,8 +148,9 @@ var patterns: Dictionary = {
 }
 
 func set_random_pattern():
-	var random_location = patterns[patterns.keys().pick_random()]
+	var random_key = patterns.keys().pick_random()
+	var random_location = patterns[random_key]
 	var random_pattern = random_location.keys().pick_random()
 	var random_correct_key = random_location[random_pattern]
-	CurrentNightData.current_limbo_pattern = {"pattern": random_pattern, "correct_key": random_correct_key}
+	CurrentNightData.current_limbo_pattern = {"pattern": random_key + ": " + random_pattern, "correct_key": random_correct_key}
 	return CurrentNightData.current_limbo_pattern

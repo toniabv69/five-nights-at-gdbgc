@@ -1,0 +1,133 @@
+[gd_scene load_steps=15 format=3 uid="uid://dq70tgvvi0wti"]
+
+[ext_resource type="Script" uid="uid://ceha4m8vd4hvv" path="res://Scripts/Objects/Cutscenes/end_night_cutscene.gd" id="1_wp8pb"]
+[ext_resource type="PackedScene" uid="uid://c7iimm16s3que" path="res://Assets/ObjectModels/office_walls.glb" id="4_1rabv"]
+[ext_resource type="PackedScene" uid="uid://p4gusk1ysuej" path="res://Assets/ObjectModels/desk.glb" id="5_axiy4"]
+[ext_resource type="PackedScene" uid="uid://02xf0rq7jck1" path="res://Assets/ObjectModels/router.glb" id="6_ode0l"]
+[ext_resource type="PackedScene" uid="uid://vffuitiwqgwp" path="res://Assets/ObjectModels/vending_machine.glb" id="7_34ueg"]
+[ext_resource type="PackedScene" uid="uid://smf028cbu0yc" path="res://Scenes/Objects/door.tscn" id="8_dq85i"]
+[ext_resource type="PackedScene" uid="uid://c045w6t6871lf" path="res://Scenes/Objects/ethernet_cable.tscn" id="9_a1x67"]
+[ext_resource type="PackedScene" uid="uid://dg2dngs73jxqg" path="res://Scenes/Objects/monitor.tscn" id="10_4lwjy"]
+[ext_resource type="PackedScene" uid="uid://dhj3qx6ygyk4d" path="res://Assets/ObjectModels/clock.glb" id="11_hici8"]
+
+[sub_resource type="Environment" id="Environment_iydet"]
+tonemap_exposure = 0.0
+
+[sub_resource type="Environment" id="Environment_tu7dn"]
+
+[sub_resource type="Animation" id="Animation_iylsh"]
+resource_name = "camera_animation"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-5.404, 8.228, -6.313409), Vector3(-5.404, 8.228, -3.5255392)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0033966992, -0.018292403, 0.18357757), Vector3(-0.0017081156, -0.018526496, -0.09192811)]
+}
+
+[sub_resource type="Animation" id="Animation_1rabv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-5.404, 8.228, -6.313409)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0033966992, -0.018292403, 0.18357757)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_axiy4"]
+_data = {
+&"RESET": SubResource("Animation_1rabv"),
+&"camera_animation": SubResource("Animation_iylsh")
+}
+
+[node name="EndNightCutscene" type="Node3D"]
+script = ExtResource("1_wp8pb")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(0.9830211, -0.18257871, -0.018291276, 0.18254712, 0.98319125, -0.0033966927, 0.018603988, 4.656613e-10, 0.9998269, -5.404, 8.228, -6.313409)
+environment = SubResource("Environment_iydet")
+current = true
+fov = 64.6
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.687339, 0)
+light_energy = 5.0
+light_indirect_energy = 5.0
+light_volumetric_fog_energy = 0.835
+light_size = 0.052
+shadow_enabled = true
+shadow_transmittance_bias = 0.38
+shadow_opacity = 0.35
+shadow_blur = 10.0
+omni_range = 17.720331
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tu7dn")
+
+[node name="Office" type="Node" parent="."]
+
+[node name="OfficeWalls" parent="Office" instance=ExtResource("4_1rabv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.79966825, -0.031151295, 0, 0.016144753)
+
+[node name="Desk" parent="Office" instance=ExtResource("5_axiy4")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.72563076, 5.5778074)
+
+[node name="Router" parent="Office" instance=ExtResource("6_ode0l")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5618649, 2.9886117, 6.7151575)
+
+[node name="VendingMachine" parent="Office" instance=ExtResource("7_34ueg")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -7.957, 4.17, 0)
+
+[node name="Door" parent="Office" instance=ExtResource("8_dq85i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023903847, 4.292261, -8.776262)
+
+[node name="EthernetCable" parent="Office" instance=ExtResource("9_a1x67")]
+transform = Transform3D(-0.5, 0, -2.2992191e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.263, 3.574, 2.989, 7.676)
+visible = false
+
+[node name="Monitor" parent="Office" instance=ExtResource("10_4lwjy")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 0, 4.98, 6.708)
+
+[node name="Clock" parent="Office" instance=ExtResource("11_hici8")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -5.4037933, 8.227993, -8.378357)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_axiy4")
+}
